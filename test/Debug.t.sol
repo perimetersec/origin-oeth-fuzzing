@@ -6,7 +6,7 @@ import "forge-std/console.sol";
 
 import {MockWETH} from "../src/mocks/MockWETH.sol";
 import {OUSD} from "../src/token/OUSD.sol";
-import {VaultFuzzWrapper} from "../src/fuzz/VaultFuzzWrapper.sol";
+import {OETHVaultFuzzWrapper} from "../src/fuzz/oethvault/OETHVaultFuzzWrapper.sol";
 
 contract MockOracle {
     mapping(address => uint256) public price;
@@ -22,13 +22,13 @@ contract DebugTest is Test {
     MockWETH weth;
     MockOracle oracle;
     OUSD token;
-    VaultFuzzWrapper vault;
+    OETHVaultFuzzWrapper vault;
 
     function setUp() public {
         weth = new MockWETH();
         oracle = new MockOracle();
         token = new OUSD();
-        vault = new VaultFuzzWrapper();
+        vault = new OETHVaultFuzzWrapper(address(weth));
 
         token.initialize(
             "TOETH",
