@@ -27,4 +27,4 @@ codeSize: 0x8000
 
 deployer: "0xfffff"
 sender: ["0x10000", "0x20000", "0x30000", "0x40000"]
-deployContracts: [["0x30000", "Dummy"],["0x40000", "Dummy"]]
+deployContracts: [["0x30000", "Dummy1"],["0x40000", "Dummy2"]]
